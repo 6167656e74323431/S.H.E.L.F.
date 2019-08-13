@@ -1,0 +1,56 @@
+<h1>Add Book</h1>
+<h4>Add Via ISBN</h4>
+
+<%= form_for :isbn_fill, url: books_path do |f| %>
+  <% if @query_errors != nil and @query_errors.any? %>
+    <% @query_errors.each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
+  <% end %>
+  <p>
+    <%= f.label :isbn, 'ISBN' %>
+    <%= f.number_field :isbn, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.submit 'Fill Form', :class => 'btn btn-primary' %>
+  </p>
+<% end %>
+<h3>Add Book Manually</h3>
+<%= form_for @book do |f| %>
+  <% if @book.errors.any? %>
+    <% @book.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
+  <% end %>
+  <p>
+    <%= f.label :title, 'Title' %>
+    <%= f.text_field :title, :class => 'form-control', :value => @title %>
+  </p>
+  <p>
+    <%= f.label :author, 'Author' %>
+    <%= f.text_field :author, :class => 'form-control', :value => @author %>
+  </p>
+  <p>
+    <%= f.label :publisher, 'Publisher' %>
+    <%= f.text_field :publisher, :class => 'form-control', :value => @publisher %>
+  </p>
+  <p>
+    <%= f.label :year, 'Year' %>
+    <%= f.number_field :year, :class => 'form-control', :value => @year %>
+  </p>
+  <p>
+    <%= f.label :isbn, 'ISBN' %>
+    <%= f.number_field :isbn, :class => 'form-control', :value => @isbn %>
+  </p>
+  <p>
+    <%= f.label :scannable, 'Scannable' %>
+    <%= f.text_field :scannable, :class => 'form-control', :value => @scannable %>
+  </p>
+  <p>
+    <%= f.label :shelf, 'Shelf' %>
+    <%= f.text_field :shelf, :class => 'form-control', :value => @shelf %>
+  </p>
+  <p>
+    <%= f.submit 'Add Book', :class => 'btn btn-primary' %>
+  </p>
+<% end %>

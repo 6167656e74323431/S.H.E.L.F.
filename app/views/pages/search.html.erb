@@ -1,0 +1,26 @@
+<%= form_for :query do |f| %>
+  <p>
+    <div class="input-group mb-3 center" style="width: 60%">
+      <%= f.text_field :query, class: 'form-control', placeholder: "Search from over #{@book_count} books!", value: @query_text %>
+      <div class="input-group-append">
+        <%= f.submit 'Search', class: 'btn btn-outline-primary' %>
+      </div>
+    </div>
+  </p>
+<% end %>
+<br>
+<% if !@found%>
+  <center><h2><%= "No results found for: " %><i><%= @query_text %></i></h2></center>
+<% end %>
+<div class="d-flex flex-wrap col-xs-1">
+  <% @books.each do |book| %>
+    <br>
+    <%= render partial: "shared/book_preview.html.erb", locals: {book: book} %>
+  <% end %>
+</div>
+<% if @books != [] then %>
+  <br>
+  <%= render partial: "shared/pagination_bar.html.erb", locals: {query: @query_text, 
+                                                                  page: @page.to_i,
+                                                                  last_page: @last_page} %>
+<% end %>

@@ -1,0 +1,39 @@
+<h1>Edit Book</h1>
+<%= form_for :book, url: book_path(@book), method: :patch do |f| %>
+  <% if @book.errors.any? %>
+    <% @book.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
+  <% end %>
+  <p>
+    <%= f.label :title, 'Title' %>
+    <%= f.text_field :title, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :author, 'Author' %>
+    <%= f.text_field :author, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :publisher, 'Publisher' %>
+    <%= f.text_field :publisher, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :year, 'Year' %>
+    <%= f.number_field :year, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :isbn, 'ISBN' %>
+    <%= f.number_field :isbn, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :scannable, 'Scannable' %>
+    <%= f.text_field :scannable, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :shelf, 'Shelf' %>
+    <%= f.text_field :shelf, :class => 'form-control' %>
+  </p>
+  <p>
+    <%= f.submit 'Save Book', :class => 'btn btn-primary' %>
+  </p>
+<% end %>

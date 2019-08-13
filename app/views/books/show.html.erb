@@ -1,0 +1,15 @@
+<% replacement_text = '-' %>
+<br>
+<h3><%= @book.title %></h3>
+<hr style="margin: 0">
+<p>
+  <b>By:</b> <%= (@book.author != '' ? @book.author : replacement_text) %><br>
+  <b>Published By:</b> <%= (@book.publisher != '' ? @book.publisher : replacement_text) %><br>
+  <b>Published In:</b> <%= (@book.year != '' ? @book.year : replacement_text) %><br>
+  <b>ISBN:</b> <%= (@book.isbn != '' ? @book.isbn : replacement_text) %><br>
+  <b>Other Scannable:</b> <%= (@book.scannable != '' ? @book.scannable : replacement_text) %><br>
+  <b>Located on Shelf:</b> <%= (@book.shelf != '' ? @book.shelf : replacement_text) %><br>
+</p>
+<hr>
+<%= link_to "Edit Book", edit_book_path(@book), :class => 'btn btn-outline-dark' %>
+<%= link_to "Delete Book", book_path(@book), method: :delete, data: {confirm: 'Are you sure you want to delete this book? (This action cannot be undone)'}, :class => 'btn btn-danger' %>

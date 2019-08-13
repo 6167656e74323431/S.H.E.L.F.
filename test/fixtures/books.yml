@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  author: MyText
+  publisher: MyText
+  year: 1
+  isbn: MyText
+  scannable: MyText
+  shelf: MyString
+
+two:
+  title: MyText
+  author: MyText
+  publisher: MyText
+  year: 1
+  isbn: MyText
+  scannable: MyText
+  shelf: MyString

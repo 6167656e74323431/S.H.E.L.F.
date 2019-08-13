@@ -1,0 +1,12 @@
+<nav>
+  <ul class="pagination justify-content-center">
+    <li class="page-item <%= (page == 1 ? "disabled" : "") %>">
+      <%= link_to "« Prev", {query: query, page: [page - 1, 1].max}, class: "page-link" %>
+    </li>
+    <li class="page-item disabled">
+      <%= link_to "Displaying page #{page} of #{last_page}", {}, class: "page-link" %></li>
+    <li class="page-item <%= (page == last_page ? "disabled" : "") %>">
+      <%= link_to "Next »", {query: query, page: [page + 1, last_page].min}, class: "page-link" %>
+    </li>
+  </ul>
+</nav>
