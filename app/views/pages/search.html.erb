@@ -21,6 +21,9 @@
 <% if @books != [] then %>
   <br>
   <%= render partial: "shared/pagination_bar.html.erb", locals: {query: @query_text, 
-                                                                  page: @page.to_i,
-                                                                  last_page: @last_page} %>
+                                                                 page: @page.to_i,
+                                                                 last_page: @last_page,
+                                                                 first_result: @first_result,
+                                                                 last_result: @last_result,
+                                                                 total_result: @total_result} %>
 <% end %>

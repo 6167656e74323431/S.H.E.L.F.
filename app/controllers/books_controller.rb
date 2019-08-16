@@ -73,10 +73,14 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
 
+    if params[:book][:shelf] != nil
+      params[:book][:shelf] = params[:book][:shelf].upcase
+    end
+
     if @book.update book_params then
       redirect_to @book
     else
-      render 'new'
+      render 'edit'
     end
   end
 

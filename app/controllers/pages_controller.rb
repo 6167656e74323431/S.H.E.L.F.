@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  PER_PAGE = 20
+  PER_PAGE = 10
 
   def search
     @page = (params[:page] == nil ? 1 : params[:page])
@@ -13,7 +13,11 @@ class PagesController < ApplicationController
       @found = false if @books == []
       @last_page = (@books.length / PER_PAGE.to_f).ceil
       page_num = @page.to_i
-      @books = @books[((page_num - 1) * PER_PAGE)...[@books.length, (page_num * PER_PAGE)].min]
+      @total_result = @books.length
+      @first_result = ((page_num - 1) * PER_PAGE)
+      @last_result = [@books.length, (page_num * PER_PAGE)].min
+      @books = @books[@first_result...@last_result]
+      @first_result += 1
     else
       @books = []
     end
