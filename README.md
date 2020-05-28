@@ -19,4 +19,4 @@ SHELF does **NOT** provide any sort of authentication for who is allowed to ente
 | `scannable:` | Searches through the scannable field only. | `scannable:0553212478` finds all books with the scannable field set to `0553212478`. |
 | `shelf:` | Searches through the shelf field only. | `shelf:A0` finds all books on the shelf `A0`. |
 
-**NOTE:** More than one prefix can be used in a query. For example `author:Shelley year:1984` searches for all books with the author `Shelley` that were published in `1984`.
+[Currently Broken] **NOTE:** More than one prefix can be used in a query. For example `author:Shelley year:1984` searches for all books with the author `Shelley` that were published in `1984`.
